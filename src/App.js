@@ -8,7 +8,8 @@ import {
 import { createGlobalStyle } from 'styled-components';
 // import styled from 'styled-components/macro';
 
-import { Navbar } from './components/base/Navbar.js';
+import { Navbar } from 'components/base/Navbar';
+import { Home } from 'components/pages/Home';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -41,6 +42,9 @@ function App() {
       <GlobalStyle />
       <Router>
         <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+        </Switch>
       </Router>
     </>
   );

@@ -56,7 +56,7 @@ const Nav = styled.nav`
 	left: 0;
 	width: 100%;
 	height: 70px;
-	background: green;
+	background: #fff;
 	box-shadow: 0px 4px 54px rgba(0, 0, 0, 0.25);
 	.container {
 		width: 100%;
