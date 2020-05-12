@@ -10,7 +10,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import { Navbar } from 'components/base/Navbar';
 import { Footer } from 'components/Footer';
-import { Home } from 'components/pages/Home';
+import { HomePage } from 'components/pages/HomePage';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -44,7 +44,7 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={HomePage} />
         </Switch>
         <Footer />
       </Router>

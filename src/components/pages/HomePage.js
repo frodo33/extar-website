@@ -6,14 +6,14 @@ import { Benefits } from 'components/sections/Benefits';
 import { Apartments } from 'components/sections/Apartments';
 import { Contact } from 'components/sections/Contact';
 
-export const Home = () => {
+export const HomePage = () => {
 	return (
-		<div>
+		<>
 			<HomeHeader />
 			<AboutUs />
 			<Benefits />
 			<Apartments />
 			<Contact />
-		</div>
+		</>
 	)
 }

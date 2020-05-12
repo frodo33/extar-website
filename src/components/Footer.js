@@ -4,16 +4,6 @@ import styled from 'styled-components/macro';
 
 import { Logo } from 'components/Logo';
 
-const SectionTitle = styled.h1`
-	font-size: 2.4rem;
-	margin: 30px 0;
-	@media screen and (min-width: 768px) {
-		font-size: 3.2rem;
-		margin: 50px 0;
-	}
-`;
-
-
 export const Footer = () => {
 	return (
 		<FooterWrapper>

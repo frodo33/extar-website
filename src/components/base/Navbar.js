@@ -4,6 +4,7 @@ import styled from 'styled-components/macro';
 
 import { Logo } from 'components/Logo';
 import { MenuDesktop } from 'components/MenuDesktop';
+import { MenuMobile } from 'components/MenuMobile.js';
 import { Hamburger } from 'components/Hamburger';
 import { NavContact } from 'components/NavContact';
 
@@ -43,13 +44,11 @@ export const Navbar = () => {
 
 				<NavContact />
 				<Hamburger />
+				<MenuMobile />
 			</div>
 		</Nav>
 	)
 }
-
-
-
 const Nav = styled.nav`
 	position: fixed;
 	top: 0;
@@ -58,6 +57,7 @@ const Nav = styled.nav`
 	height: 70px;
 	background: #fff;
 	box-shadow: 0px 4px 54px rgba(0, 0, 0, 0.25);
+	z-index: 999;
 	.container {
 		width: 100%;
 		height: 100%;
