@@ -41,7 +41,6 @@ export const Navbar = () => {
 					<Logo />
 					<MenuDesktop />
 				</NavWrapper>
-
 				<NavContact />
 				<Hamburger />
 				<MenuMobile />

@@ -11,6 +11,10 @@ import { createGlobalStyle } from 'styled-components';
 import { Navbar } from 'components/base/Navbar';
 import { Footer } from 'components/Footer';
 import { HomePage } from 'components/pages/HomePage';
+import { ApartmentsPage } from 'components/pages/ApartmentsPage';
+// import { PricesPage } from 'components/pages/PricesPage';
+// import { FAQPage } from 'components/pages/FAQPage';
+import { ContactPage } from 'components/pages/ContactPage';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -45,6 +49,9 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route path="/apartments" component={ApartmentsPage} />
+          <Route path="/contact" component={ContactPage} />
+          <Route render={() => <Redirect to={{pathname: "/"}} />} />
         </Switch>
         <Footer />
       </Router>
