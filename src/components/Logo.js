@@ -4,9 +4,9 @@ import styled from 'styled-components/macro';
 
 import logo from 'assets/logo.png'
 
-export const Logo = () => {
+export const Logo = ({ setOpen }) => {
 	return (
-		<LogoWrapper>
+		<LogoWrapper onClick={ () => typeof setOpen === 'function' && setOpen(false) }>
 			<Link to='/'>
 				<img src={logo} alt='logo'/>
 			</Link>

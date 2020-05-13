@@ -1,33 +1,48 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
 import { Logo } from 'components/Logo';
+import { MobileNavItem } from 'components/MobileNavItem';
 
-export const MenuMobile = () => {
+const paths = [
+	{
+		path: '/',
+		name: 'Home'
+	},
+	{
+		path: '/apartments',
+		name: 'Nasze apartamenty'
+	},
+	{
+		path: '/price-list',
+		name: 'Ceny'
+	},
+	{
+		path: '/faq',
+		name: 'FAQ'
+	},
+	{
+		path: '/contact',
+		name: 'Kontakt'
+	},
+]
+
+export const MenuMobile = ({ open, setOpen }) => {
+	const links = paths.map( (el,i) => <MobileNavItem path={el.path} name={el.name} key={i} setOpen={setOpen} /> );
 	return (
-		<Overlay>
-			<MenuMobileWrapper>
-				<Logo />
-				<MenuMobileBox>
-					<li>
-						<Link to='/'>Home</Link>
-					</li>
-					<li>
-						<Link to='/'>Nasze Apartamenty</Link>
-					</li>
-					<li>
-						<Link to='/'>Ceny</Link>
-					</li>
-					<li>
-						<Link to='/'>FAQ</Link>
-					</li>
-					<li>
-						<Link to='/'>Kontakt</Link>
-					</li>
-				</MenuMobileBox>
+		<>
+			<Overlay 
+				open={open} 
+				onClick={ () => setOpen(false)} >
+			</Overlay>
+			<MenuMobileWrapper 
+				open={open} >
+				<Logo 
+					setOpen={setOpen} />
+				
+				<MenuMobileBox>{links}</MenuMobileBox>
 			</MenuMobileWrapper>
-		</Overlay>
+		</>
 	)
 };
 
@@ -35,6 +50,7 @@ const overlayActive = `
 	opacity: 1;
 	pointer-events: auto;
 `;
+
 const Overlay = styled.div`
 	position: fixed;
 	width: 100%;
@@ -44,19 +60,23 @@ const Overlay = styled.div`
 	background: rgba(0,0,0,0.7);
 	opacity: 0;
 	pointer-events: none;
-	// ${overlayActive}
+	transition: .4s linear;
+	${ ({ open }) => open ? `${overlayActive}` : null }
 `;
-const open = `
+const slideIn = `
 	transform: translate(0,0);
 `;
 const MenuMobileWrapper = styled.div`
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 70%;
 	height: 100%;
 	background: #fff;
 	padding: 30px 20px;
 	transform: translate(-100%,0);
 	transition: .4s ease-in-out;
-	// ${open};
+	${ ({ open }) => open ? `${slideIn}` : null }
 `;
 const MenuMobileBox = styled.ul`
 	margin: 20px 0;

@@ -1,25 +1,36 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
+import { NavItem } from 'components/NavItem';
+
+const paths = [
+	{
+		path: '/',
+		name: 'Home'
+	},
+	{
+		path: '/apartments',
+		name: 'Nasze apartamenty'
+	},
+	{
+		path: '/price-list',
+		name: 'Ceny'
+	},
+	{
+		path: '/faq',
+		name: 'FAQ'
+	},
+	{
+		path: '/contact',
+		name: 'Kontakt'
+	},
+]
+
 export const MenuDesktop = () => {
+	const links = paths.map( (el,i) => <NavItem path={el.path} name={el.name} key={i} /> );
 	return (
 		<MenuDesktopWrapper>
-			<li>
-				<Link to='/'>Home</Link>
-			</li>
-			<li>
-				<Link to='/apartments'>Nasze Apartamenty</Link>
-			</li>
-			<li>
-				<Link to='/prices'>Ceny</Link>
-			</li>
-			<li>
-				<Link to='/faq'>FAQ</Link>
-			</li>
-			<li>
-				<Link to='/contact'>Kontakt</Link>
-			</li>
+			{links}
 		</MenuDesktopWrapper>
 	)
 }

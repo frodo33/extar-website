@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import styled from 'styled-components/macro';
 
 import { Logo } from 'components/Logo';
@@ -8,32 +8,8 @@ import { MenuMobile } from 'components/MenuMobile.js';
 import { Hamburger } from 'components/Hamburger';
 import { NavContact } from 'components/NavContact';
 
-
-const paths = [
-	{
-		path: '/',
-		name: 'Home'
-	},
-	{
-		path: '/apartments',
-		name: 'Nasze apartamenty'
-	},
-	{
-		path: '/price-list',
-		name: 'Ceny'
-	},
-	{
-		path: '/faq',
-		name: 'FAQ'
-	},
-	{
-		path: '/contact',
-		name: 'Kontakt'
-	},
-]
-
 export const Navbar = () => {
-	// const list = paths.map( (el,i) => <NavItem path={el.path} name={el.name} key={i} />)
+	const [open, setOpen] = useState(false);
 	return (
 		<Nav>
 			<div className="container">
@@ -42,8 +18,8 @@ export const Navbar = () => {
 					<MenuDesktop />
 				</NavWrapper>
 				<NavContact />
-				<Hamburger />
-				<MenuMobile />
+				<Hamburger open={open} setOpen={setOpen} />
+				<MenuMobile open={open} setOpen={setOpen} />
 			</div>
 		</Nav>
 	)
