@@ -10,12 +10,14 @@ import { NavContact } from 'components/NavContact';
 
 export const Navbar = () => {
 	const [open, setOpen] = useState(false);
-	const [pageTop, setPageTop] = useState();
+	const [pageTop, setPageTop] = useState(true);
+	
 	useLayoutEffect( () => {
 		const handleScroll = () => {
 			const position = window.pageYOffset;
 			position > 0 ? setPageTop(false) : setPageTop(true);
 		}
+
 		window.addEventListener('scroll', handleScroll)
 
 		return () => window.removeEventListener('scroll', handleScroll)
