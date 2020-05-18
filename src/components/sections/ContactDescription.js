@@ -23,9 +23,9 @@ export const ContactDescription = () => {
 
 const ContactDescriptionWrapper = styled.div`
 	width: 100%;
-	margin-top: 70px;
+	margin-top: 100px;
 	@media screen and (min-width: 768px) {
-		margin: 50px 0;
+		margin: 100px 0;
 	}
 	.container {
 		display: flex;

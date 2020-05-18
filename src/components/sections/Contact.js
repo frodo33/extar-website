@@ -1,21 +1,14 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-const SectionTitle = styled.h1`
-	font-size: 2.4rem;
-	margin: 30px 0;
-	@media screen and (min-width: 768px) {
-		font-size: 3.2rem;
-		margin: 50px 0;
-	}
-`;
+import { SectionTitle } from 'components/SectionTitle';
 
 
 export const Contact = () => {
 	return (
 		<ContactSection>
 			<div className="container">
-				<SectionTitleWithTip>Masz pytania?</SectionTitleWithTip>
+				<SectionTitle title={'Masz pytania?'} withTip={true} />
 				<ContactTip>Skontaktuj się z nami lub zostaw kontakt</ContactTip>
 				<ContactWrapper>
 					<Form>
@@ -54,12 +47,6 @@ const ContactSection = styled.section`
 	}
 `;
 
-const SectionTitleWithTip = styled(SectionTitle)`
-	margin: 50px 0 0 0;
-	@media screen and (min-width: 768px) {
-		margin: 50px 0 15px 0;
-	}
-`;
 const ContactTip = styled.p`
 	font-size: 1.2rem;
 	max-width: 150px;

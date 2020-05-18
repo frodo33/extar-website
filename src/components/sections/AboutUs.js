@@ -1,24 +1,16 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
+import { SectionTitle } from 'components/SectionTitle';
+
 import pic1 from 'assets/about_us/pic_1.jpg';
 import pic2 from 'assets/about_us/pic_2.jpg';
-
-const SectionTitle = styled.h1`
-	font-size: 2.4rem;
-	margin: 30px 0;
-	@media screen and (min-width: 768px) {
-		font-size: 3.2rem;
-		margin: 50px 0;
-	}
-`;
-
 
 export const AboutUs = () => {
 	return (
 		<AboutUsSection>
 			<div className="container">
-				<SectionTitle>Dlaczego my?</SectionTitle>
+				<SectionTitle title={'Dlaczego my?'} />
 				<ArticleWrapper>
 					<figure>
 						<ArticlePicture>

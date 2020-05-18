@@ -1,46 +1,73 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
 
 import Icon from 'components/Icon';
+import { SectionTitle } from 'components/SectionTitle';
 
-const SectionTitle = styled.h1`
-	font-size: 2.4rem;
-	margin: 30px 0;
-	@media screen and (min-width: 768px) {
-		font-size: 3.2rem;
-		margin: 50px 0;
+const benefits = [
+	{
+		iconName: 'report',
+		text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, esse, beatae. Quaerat ullam voluptate unde quos cumque molestiae dolorem quidem officia magnam, sapiente quasi nam labore totam, ea laborum nisi necessitatibus mollitia quae accusantium omnis! Atque in autem animi perspiciatis, eveniet aperiam nisi non accusamus, qui mollitia eligendi excepturi dolorum!',
+	},
+	{
+		iconName: 'phone',
+		text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, esse, beatae. Quaerat ullam voluptate unde quos cum labore totam, ea laborum nisi necessitatibus mollitia quae accusantium omnis! Atque in autem animi perspiciatis, eveniet aperiam nisi non accusamus, qui mollitia eligendi excepturi dolorum!',
+	},
+	{
+		iconName: 'message',
+		text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, esse, beatae.  nisi necessitatibus mollitia quae accusantium omnis! Atque in autem animi perspiciatis, eveniet aperiam nisi non accusamus, qui mollitia eligendi excepturi dolorum!',
+	},
+	{
+		iconName: 'envelope',
+		text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, esse, beatae. , eveniet aperiam nisi non accusamus, qui mollitia eligendi excepturi dolorum!',
+	},
+	{
+		iconName: 'trash',
+		text: 'eveniet aperiam nisi non accusamus, qui mollitia eligendi excepturi dolorum!',
 	}
-`;
-
+]
 
 export const Benefits = () => {
+	const staticIcons = benefits.map( (el, i) => {
+		return (i === 0) 
+		? <IconBox active={true} key={i} onMouseEnter={ (event) => handleHover(event, i) } > <Icon name={el.iconName} /> </IconBox>
+		: <IconBox key={i} onMouseEnter={ (event) => handleHover(event, i) } > <Icon name={el.iconName} /> </IconBox>
+	});
+	const staticTexts = benefits.map( (el, i) => {
+		return (i === 0) 
+			? <Description active={true} key={i}>{el.text}</Description>
+			: <Description key={i}>{el.text}</Description>
+	});
+
+	const [icons, setIcons] = useState(staticIcons);
+	const [texts, setTexts] = useState(staticTexts);
+
+	const handleHover = (e, ind) => {
+		e.preventDefault();
+
+		const currentIcons = benefits.map( (el, i) => {
+			return (i === ind) 
+				? <IconBox key={i} active={true} onMouseEnter={ (event) => handleHover(event, i) } > <Icon name={el.iconName} /> </IconBox>
+				: <IconBox key={i} onMouseEnter={ (event) => handleHover(event, i) } > <Icon name={el.iconName} /> </IconBox>
+		});
+		const currentTexts = benefits.map( (el, i) => {
+			return (i === ind) 
+				? <Description active={true} key={i}>{el.text}</Description>
+				: <Description key={i}>{el.text}</Description>
+		});
+
+		setIcons(currentIcons);
+		setTexts(currentTexts);
+	}
 	return (
 		<BenefitsSection>
 			<div className="container">
-				<SectionTitle>Jakie korzyści płyną</SectionTitle>
+				<SectionTitle title={'Jakie korzyści płyną'} />
 				<IconsWrapper>
-					<IconBox>
-						<Icon name='report' />
-					</IconBox>
-					<IconBox>
-						<Icon name='report' />
-					</IconBox>
-					<IconBox>
-						<Icon name='report' />
-					</IconBox>
-					<IconBox>
-						<Icon name='report' />
-					</IconBox>
-					<IconBox>
-						<Icon name='report' />
-					</IconBox>
+					{icons}
 				</IconsWrapper>
 				<DescWrapper>
-					<Description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.</Description>
-					<Description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.</Description>
-					<Description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.</Description>
-					<Description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.</Description>
-					<Description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, perferendis reprehenderit nihil deserunt inventore cumque expedita. Cumque minima, autem fuga.</Description>
+					{texts}
 				</DescWrapper>
 			</div>
 		</BenefitsSection>
@@ -85,9 +112,10 @@ const IconBox = styled.div`
 		width: 120px;
 		height: 120px;
 		margin: 0px 30px;
-		&:hover {
-			transform: scale(1.1);
-		}
+		${ ({ active }) => active && 'transform: scale(1.1);' }
+		// &:hover {
+		// 	transform: scale(1.1);
+		// }
 	}
 `;
 
@@ -117,9 +145,8 @@ const Description = styled.p`
 	font-size: 1.2rem;
 	padding: 15px 10px;
 	opacity: 0;
-	&:first-child {
-		${visibleDescription}
-	}
+	${ ({ active }) => active && visibleDescription }
+
 	@media screen and (min-width: 768px) {
 		font-size: 1.6rem;
 		padding: 15px 30px;
