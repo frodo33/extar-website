@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 import Icon from "components/Icon";
 
 export const NavContact = ({ data }) => {
-	const { number, email } = data; 
+	const { number, email } = data;
 	return (
 		<>
 			<NavContactWrapper>

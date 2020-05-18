@@ -11,10 +11,10 @@ export const HomePage = () => {
 	return (
 		<>
 			<HomeHeader data={SETTINGS.homeHeader} />
-			<AboutUs data={SETTINGS.aboutUs} />
-			<Benefits data={SETTINGS.benefits} />
-			<Apartments data={SETTINGS.apartments} />
-			<Contact data={SETTINGS.contact} />
+			<AboutUs data={SETTINGS.aboutUsSection} />
+			<Benefits data={SETTINGS.benefitsSection} />
+			<Apartments data={SETTINGS.apartmentsSection} />
+			<Contact data={SETTINGS.contactSection} />
 		</>
 	)
 }

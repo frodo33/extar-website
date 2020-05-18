@@ -2,13 +2,13 @@ import React from 'react';
 import { SETTINGS } from 'settings/settings';
 
 import { Contact } from 'components/sections/Contact';
-import { Offer } from 'components/sections/Offer';
+import { OfferSection } from 'components/sections/OfferSection';
 
 export const ApartmentsPage = () => {
 	return (
 		<div>
-			<Offer />
-			<Contact data={SETTINGS.contact} />
+			<OfferSection data={SETTINGS.offerSection} />
+			<Contact data={SETTINGS.contactSection} />
 		</div>
 	)
 }
