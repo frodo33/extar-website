@@ -4,12 +4,13 @@ import styled from 'styled-components/macro';
 import { SectionTitle } from 'components/SectionTitle';
 
 
-export const Contact = () => {
+export const Contact = ({ data }) => {
+	const { title, tip, legal, number, email} = data;
 	return (
 		<ContactSection>
 			<div className="container">
-				<SectionTitle title={'Masz pytania?'} withTip={true} />
-				<ContactTip>Skontaktuj się z nami lub zostaw kontakt</ContactTip>
+				<SectionTitle title={title} withTip={true} />
+				<ContactTip>{tip}</ContactTip>
 				<ContactWrapper>
 					<Form>
 						<div className="form-wrapper">
@@ -18,15 +19,15 @@ export const Contact = () => {
 							</div>
 							<div className='legal'>
 								<input type="checkbox" name="checkbox" id="checkbox" />
-								<label htmlFor="checkbox">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, id!</label>
+								<label htmlFor="checkbox">{legal}</label>
 							</div>
 						</div>
 						<button type='submit' className='submit-btn'>Zapisz</button>
 					</Form>
 					<Or>lub</Or>
 					<Details>
-						<a href='tel:12332112'>555 333 555</a>
-						<a href='mailto:test@test.pl'>test@test.pl</a>
+						<a href={`tel:+48 ${number}`}>+48 {number}</a>
+						<a href={`mailto:${email}`}>{email}</a>
 					</Details>
 				</ContactWrapper>
 			</div>

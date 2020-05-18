@@ -1,33 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { PATHS } from 'settings/paths';
 
 import { DesktopNavItemWithRouter } from 'components/DesktopNavItem';
 
-const paths = [
-	{
-		path: '/',
-		name: 'Home'
-	},
-	{
-		path: '/apartments',
-		name: 'Nasze apartamenty'
-	},
-	{
-		path: '/price-list',
-		name: 'Ceny'
-	},
-	{
-		path: '/faq',
-		name: 'FAQ'
-	},
-	{
-		path: '/contact',
-		name: 'Kontakt'
-	},
-]
-
 export const MenuDesktop = () => {
-	const links = paths.map( (el,i) => <DesktopNavItemWithRouter path={el.path} name={el.name} key={i} /> );
+	const links = PATHS.map( (el,i) => <DesktopNavItemWithRouter path={el.path} name={el.name} key={i} /> );
 	return (
 		<MenuDesktopWrapper>
 			{links}

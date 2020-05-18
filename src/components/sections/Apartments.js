@@ -5,11 +5,12 @@ import { SectionTitle } from 'components/SectionTitle';
 
 import banner from 'assets/header.jpg';
 
-export const Apartments = () => {
+export const Apartments = ({ data }) => {
+	const { title } = data;
 	return (
 		<ApartmentsSection>
 			<div className="container">
-				<SectionTitle title={'Nasze apartamenty'} />
+				<SectionTitle title={title} />
 				<Gallery>
 					<div className="pic pic1"><div className="bg"></div></div>
 					<div className="pic pic2"><div className="bg"></div></div>

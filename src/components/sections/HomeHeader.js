@@ -4,11 +4,12 @@ import styled from 'styled-components/macro';
 import banner from 'assets/header.jpg';
 
 
-export const HomeHeader = () => {
+export const HomeHeader = ({ data }) => {
+	const { title } = data;
 	return (
 		<HomeHeaderSection>
 			<div className="container">
-				<HeaderTitle>Lorem ipsum dolor sit amet.</HeaderTitle>
+				<HeaderTitle>{title}</HeaderTitle>
 			</div>
 		</HomeHeaderSection>
 	)

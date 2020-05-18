@@ -3,14 +3,15 @@ import styled from 'styled-components/macro';
 
 import Icon from "components/Icon";
 
-export const NavContact = () => {
+export const NavContact = ({ data }) => {
+	const { number, email } = data; 
 	return (
 		<>
 			<NavContactWrapper>
-				<span>tel: <a href='tel:12332112'>123 333 112</a></span>
-				<span>email: <a href='mailto:test@test.pl'>test@test.pl</a></span>
+				<span>tel: <a href={`tel:+48${number}`}>+48 {number}</a></span>
+				<span>email: <a href={`mailto:${email}`}>{email}</a></span>
 			</NavContactWrapper>
-			<NavIconWrapper>
+			<NavIconWrapper href={`tel:+48${number}`} >
 				<Icon name="phone" fill={'#000'} />
 			</NavIconWrapper>
 		</>
@@ -36,7 +37,7 @@ const NavContactWrapper = styled.div`
 	}
 `;
 
-const NavIconWrapper = styled.div`
+const NavIconWrapper = styled.a`
 	max-width: 35px;
 	@media screen and (min-width: 768px) {
 		display: none;

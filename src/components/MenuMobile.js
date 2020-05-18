@@ -1,34 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { PATHS } from 'settings/paths';
 
 import { Logo } from 'components/Logo';
 import { MobileNavItem } from 'components/MobileNavItem';
 
-const paths = [
-	{
-		path: '/',
-		name: 'Home'
-	},
-	{
-		path: '/apartments',
-		name: 'Nasze apartamenty'
-	},
-	{
-		path: '/price-list',
-		name: 'Ceny'
-	},
-	{
-		path: '/faq',
-		name: 'FAQ'
-	},
-	{
-		path: '/contact',
-		name: 'Kontakt'
-	},
-]
-
 export const MenuMobile = ({ open, setOpen }) => {
-	const links = paths.map( (el,i) => <MobileNavItem path={el.path} name={el.name} key={i} setOpen={setOpen} /> );
+	const links = PATHS.map( (el,i) => <MobileNavItem path={el.path} name={el.name} key={i} setOpen={setOpen} /> );
 	return (
 		<>
 			<Overlay 

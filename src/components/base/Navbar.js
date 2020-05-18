@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useLayoutEffect } from 'react';
 import styled from 'styled-components/macro';
+import { SETTINGS } from 'settings/settings';
 
 import { Logo } from 'components/Logo';
 import { MenuDesktop } from 'components/MenuDesktop';
@@ -29,7 +30,7 @@ export const Navbar = () => {
 					<Logo />
 					<MenuDesktop />
 				</NavWrapper>
-				<NavContact />
+				<NavContact data={SETTINGS.contact}/>
 				<Hamburger open={open} setOpen={setOpen} />
 				<MenuMobile open={open} setOpen={setOpen} />
 			</div>
