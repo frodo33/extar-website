@@ -1,5 +1,5 @@
 import React from 'react';
-import { SETTINGS } from 'settings/settings';
+import DATA from 'settings/data.json';
 
 import { HomeHeader } from 'components/sections/HomeHeader';
 import { AboutUs } from 'components/sections/AboutUs';
@@ -10,11 +10,11 @@ import { Contact } from 'components/sections/Contact';
 export const HomePage = () => {
 	return (
 		<>
-			<HomeHeader data={SETTINGS.homeHeader} />
-			<AboutUs data={SETTINGS.aboutUsSection} />
-			<Benefits data={SETTINGS.benefitsSection} />
-			<Apartments data={SETTINGS.apartmentsSection} />
-			<Contact data={SETTINGS.contactSection} />
+			<HomeHeader data={DATA.homeHeader} />
+			<AboutUs data={DATA.aboutUsSection} />
+			<Benefits data={DATA.benefitsSection} />
+			<Apartments data={DATA.apartmentsSection} />
+			<Contact data={DATA.contactSection} />
 		</>
 	)
 }

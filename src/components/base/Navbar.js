@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState, useLayoutEffect } from 'react';
 import styled from 'styled-components/macro';
-import { SETTINGS } from 'settings/settings';
+
+import DATA from 'settings/data.json';
 
 import { Logo } from 'components/Logo';
 import { MenuDesktop } from 'components/MenuDesktop';
@@ -23,14 +24,15 @@ export const Navbar = () => {
 
 		return () => window.removeEventListener('scroll', handleScroll)
 	}, [])
+	console.log(DATA.logo,'navbar')
 	return (
 		<Nav pageTop={pageTop}>
 			<div className="container">
 				<NavWrapper>
-					<Logo />
+					<Logo path={DATA.logo} />
 					<MenuDesktop />
 				</NavWrapper>
-				<NavContact data={SETTINGS.contactSection}/>
+				<NavContact data={DATA.contactSection}/>
 				<Hamburger open={open} setOpen={setOpen} />
 				<MenuMobile open={open} setOpen={setOpen} />
 			</div>

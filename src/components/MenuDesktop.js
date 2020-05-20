@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { PATHS } from 'settings/paths';
+import PATHS from 'settings/paths.json';
 
 import { DesktopNavItemWithRouter } from 'components/DesktopNavItem';
 
