@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import styled from 'styled-components/macro';
 
 import DATA from 'settings/data.json';
@@ -34,11 +33,12 @@ export const Navbar = () => {
 				</NavWrapper>
 				<NavContact data={DATA.contactSection}/>
 				<Hamburger open={open} setOpen={setOpen} />
-				<MenuMobile open={open} setOpen={setOpen} />
+				<MenuMobile path={DATA.logo} open={open} setOpen={setOpen} />
 			</div>
 		</Nav>
 	)
 }
+
 const Nav = styled.nav`
 	position: fixed;
 	top: 0;

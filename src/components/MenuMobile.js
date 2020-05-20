@@ -5,7 +5,7 @@ import PATHS from 'settings/paths.json';
 import { Logo } from 'components/Logo';
 import { MobileNavItem } from 'components/MobileNavItem';
 
-export const MenuMobile = ({ open, setOpen }) => {
+export const MenuMobile = ({ path, open, setOpen }) => {
 	const links = PATHS.map( (el,i) => <MobileNavItem path={el.path} name={el.name} key={i} setOpen={setOpen} /> );
 	return (
 		<>
@@ -15,7 +15,8 @@ export const MenuMobile = ({ open, setOpen }) => {
 			</Overlay>
 			<MenuMobileWrapper 
 				open={open} >
-				<Logo 
+				<Logo
+					path={path}
 					setOpen={setOpen} />
 				
 				<MenuMobileBox>{links}</MenuMobileBox>

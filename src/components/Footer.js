@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
+import DATA from 'settings/data.json';
+
 import { Logo } from 'components/Logo';
 import { MenuFooter } from 'components/MenuFooter';
 
@@ -8,7 +10,7 @@ export const Footer = () => {
 	return (
 		<FooterWrapper>
 			<div className="container">
-				<Logo />
+				<Logo path={DATA.logo} />
 				<MenuFooter />
 				<Legal>Copyright <a href='/'>Extar.pl</a> powered by Zakoduj.com</Legal>
 			</div>
