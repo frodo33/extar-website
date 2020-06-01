@@ -23,7 +23,6 @@ export const Navbar = () => {
 
 		return () => window.removeEventListener('scroll', handleScroll)
 	}, [])
-	console.log(DATA.logo,'navbar')
 	return (
 		<Nav pageTop={pageTop}>
 			<div className="container">

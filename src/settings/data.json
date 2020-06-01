@@ -15,19 +15,19 @@
 				{
 					"title": "Lorem ipsum dolor sit amet, consectetur.",
 					"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias eos quam incidunt voluptatem corrupti aspernatur, dicta atque, explicabo suscipit error id minus consequuntur delectus quae vero repellat. Quia, facilis et ducimus, doloremque eveniet, error soluta, ex distinctio labore repellat nihil exercitationem! Excepturi, repudiandae enim dolorum. Doloribus, itaque totam at corporis?",
-					"image": "articlePicture",
+					"image": "about_us/pic_1.jpg",
 					"reverse": false
 				},
 				{
 					"title": "Lorem ipsum dolor sit amet.",
 					"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae natus accusantium mollitia quos optio dolorum architecto, ratione enim assumenda est deserunt vitae neque sequi, sunt adipisci, aliquam commodi facere inventore?",
-					"image": "articlePicture2",
+					"image": "about_us/pic_2.jpg",
 					"reverse": true
 				},
 				{
 					"title": "Lorem ipsum dolor sit amet, consectetur.",
 					"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias eos quam incidunt voluptatem corrupti aspernatur, dicta atque, explicabo suscipit error id minus consequuntur delectus quae vero repellat. Quia, facilis et ducimus, doloremque eveniet, error soluta, ex distinctio labore repellat nihil exercitationem! Excepturi, repudiandae enim dolorum. Doloribus, itaque totam at corporis?",
-					"image": "articlePicture",
+					"image": "about_us/pic_1.jpg",
 					"reverse": false
 				}
 			]
@@ -69,7 +69,8 @@
 		},
 	"homeHeader": 
 		{
-			"title": "Lorem ipsum dolor sit amet."
+			"title": "Lorem ipsum dolor sit amet.",
+			"image": "assets/header.jpg"
 		},
 	"offerSection": 
 		{

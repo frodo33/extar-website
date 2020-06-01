@@ -7,7 +7,7 @@ export const AboutUsArticle = ({ data }) => {
 		<ArticleWrapper>
 			<figure>
 				<ArticlePicture reverse={reverse}>
-					<img src={image} alt='' />
+					<img src={ require(`assets/${image}`) } alt='' />
 				</ArticlePicture>
 				<ArticleText reverse={reverse}>
 					<h2 className='title'>{title}</h2>
