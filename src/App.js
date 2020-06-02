@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
+  withRouter
 } from "react-router-dom";
 import { createGlobalStyle } from 'styled-components';
 // import styled from 'styled-components/macro';
+import firebase from 'firebase';
 
 import { Navbar } from 'components/base/Navbar';
 import { Footer } from 'components/Footer';
@@ -15,6 +16,8 @@ import { ApartmentsPage } from 'components/pages/ApartmentsPage';
 // import { PricesPage } from 'components/pages/PricesPage';
 // import { FAQPage } from 'components/pages/FAQPage';
 import { ContactPage } from 'components/pages/ContactPage';
+import { Login } from 'components/Login';
+import { Dashboard } from 'components/Dashboard';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -41,22 +44,45 @@ const GlobalStyle = createGlobalStyle`
     } 
 `;
 
-function App() {
+const onAuthStateChange = (callback) => {
+  return firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        console.log(user,'success')
+        callback(true)
+        // window.location.pathname = '/dashboard';
+      } else {
+        console.log(user,'failure')
+        callback(false);
+      }
+  });
+}
+
+const App = ({ location }) => {
+  const exclusionArray = [
+    '/login',
+    '/dashboard'
+  ]
+  const [user, setUser] = useState(false);
+  useEffect( () => {
+    const unsubscribe = onAuthStateChange(setUser);
+    return () => unsubscribe()
+  }, [])
   return (
     <>
       <GlobalStyle />
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/apartments" component={ApartmentsPage} />
-          <Route path="/contact" component={ContactPage} />
-          <Route render={() => <Redirect to={{pathname: "/"}} />} />
-        </Switch>
-        <Footer />
-      </Router>
+      { exclusionArray.indexOf(location.pathname) < 0 && <Navbar /> }
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/apartments" component={ApartmentsPage} />
+        <Route path="/contact" component={ContactPage} />
+        
+        <Route path="/dashboard" render={ () => user ? <Dashboard /> : <Login /> } />
+        <Route render={() => <Redirect to={{pathname: "/"}} />} />
+      </Switch>
+      { exclusionArray.indexOf(location.pathname) < 0 && <Footer /> }
     </>
   );
 }
 
-export default App;
+export default withRouter(App);
+// <Route path="/login" component={Login} />

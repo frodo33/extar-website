@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import firebase from 'firebase';
+
+// Your web app's Firebase configuration
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+const db = firebase.firestore();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  	<Router>
+    	<App />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

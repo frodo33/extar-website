@@ -34,7 +34,17 @@
 		},
 	"apartmentsSection": 
 		{
-			"title": "Nasze apartamenty"
+			"title": "Nasze apartamenty",
+			"gallery": {
+				"picture1": "",
+				"picture2": "",
+				"picture3": "",
+				"picture4": "",
+				"picture5": "",
+				"picture6": "",
+				"picture7": "",
+				"picture8": ""
+			}
 		},
 	"benefitsSection": 
 		{

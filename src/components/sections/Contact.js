@@ -1,28 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components/macro';
+import firebase from 'firebase';
 
 import { SectionTitle } from 'components/SectionTitle';
 
 
 export const Contact = ({ data }) => {
+	const db = firebase.firestore();
+
 	const { title, tip, legal, number, email} = data;
+	const [emailVal, setEmailVal] = useState('');
+
+	const getDate = () => {
+		let today = new Date();
+		let dd = String(today.getDate()).padStart(2, '0');
+		let mm = String(today.getMonth() + 1).padStart(2, '0');
+		let yyyy = today.getFullYear();
+		
+		today = mm + '/' + dd + '/' + yyyy;
+		return today
+	}
+
+	const handleJoin = (e) => {
+		e.preventDefault();
+		const date = getDate()
+		db.collection('clients')
+		.add({
+			date: date,
+			email: emailVal
+		})
+		.then( res => {
+			setEmailVal('');
+		})
+	}
 	return (
 		<ContactSection>
 			<div className="container">
 				<SectionTitle title={title} withTip={true} />
 				<ContactTip>{tip}</ContactTip>
 				<ContactWrapper>
-					<Form>
+					<Form
+						onSubmit={handleJoin}>
 						<div className="form-wrapper">
 							<div className='field'>
-								<input type="email" name="email" id="email" />
+								<input 
+									type="email" 
+									name="email" 
+									id="email"
+									value={emailVal}
+									onChange={ (e) => setEmailVal(e.target.value) } />
 							</div>
 							<div className='legal'>
 								<input type="checkbox" name="checkbox" id="checkbox" />
 								<label htmlFor="checkbox">{legal}</label>
 							</div>
 						</div>
-						<button type='submit' className='submit-btn'>Zapisz</button>
+						<button 
+							type='submit' 
+							className='submit-btn'
+							>Zapisz
+						</button>
 					</Form>
 					<Or>lub</Or>
 					<Details>
