@@ -52,23 +52,43 @@
 			"iconsArr": [
 				{
 					"iconName": "report",
-					"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, esse, beatae. Quaerat ullam voluptate unde quos cumque molestiae dolorem quidem officia magnam, sapiente quasi nam labore totam, ea laborum nisi necessitatibus mollitia quae accusantium omnis! Atque in autem animi perspiciatis, eveniet aperiam nisi non accusamus, qui mollitia eligendi excepturi dolorum!"
+					"title": "Aranżacja wnętrz",
+					"text": "Przygotujemy profesjonalnie Państwa nieruchomość, aby była jak najbardziej atrakcyjna dla potencjalnych Gości , przez co zwiększymy atrakcyjność lokalu ( pomoc w odpowiednim urządzeniu lokalu, optymalnie do posiadanego przez Państwa budżetu ). Nasi konsultanci pomogą Ci dostosować mieszkanie do potrzeb wynajmujących tak, by stało się ono atrakcyjne i funkcjonalne."
 				},
 				{
 					"iconName": "phone",
-					"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, esse, beatae. Quaerat ullam voluptate unde quos cum labore totam, ea laborum nisi necessitatibus mollitia quae accusantium omnis! Atque in autem animi perspiciatis, eveniet aperiam nisi non accusamus, qui mollitia eligendi excepturi dolorum!"
+					"title": "Prezentacje mieszkań",
+					"text": "Profesjonalna sesja fotograficzna, przy użyciu najnowszych technik fotograficznych – sesja przy pomocy obiektywów szerokokątnych, które sprawią, że Państwa lokal będzie wydawał się większy i bardziej atrakcyjny, odpowiednia obróbka zdjęć przy użyciu profesjonalnych narzędzi komputerowych."
 				},
 				{
 					"iconName": "message",
-					"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, esse, beatae.  nisi necessitatibus mollitia quae accusantium omnis! Atque in autem animi perspiciatis, eveniet aperiam nisi non accusamus, qui mollitia eligendi excepturi dolorum!"
+					"title": "Reklama",
+					"text": "Umieścimy ofertę Państwa nieruchomości na wielu portalach oferujących najem bezpośrednio klientom ( booking.com, airbnb, tripadwisor i wiele innych – w sumie kilkadziesiąt serwisów ogłoszeniowych z którymi współpracujemy ), portale o zasięgu międzynarodowym, krajowym i lokalnym."
 				},
 				{
 					"iconName": "envelope",
-					"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, esse, beatae. , eveniet aperiam nisi non accusamus, qui mollitia eligendi excepturi dolorum!"
+					"title": "Administrowanie nieruchomością i rezerwacjami",
+					"text": "Będziemy profesjonalnie zarządzać kalendarzem rezerwacji, tak ,aby zapewnić maksymalne obłożenie Państwa nieruchomości ( używamy profesjonalnego oprogramowania dedykowanego do zarządzania rezerwacjami )."
+				},
+				{
+					"iconName": "envelope",
+					"title": "Bezpieczny wynajem",
+					"text": "Kompleksowa opieka nad Państwa nieruchomością oraz Gośćmi. Każdy lokal/apartament jest przez nas dodatkowo ubezpieczany od zniszczeń , które mogą się zdarzyć podczas wynajmu."
+				},
+				{
+					"iconName": "envelope",
+					"title": "Kontakt z wynajmującym",
+					"text": "Bieżące kontakty z Gośćmi oraz potencjalnymi Gośćmi, obsługa rezerwacji, korespondencja e-mailowa i telefoniczna, itp., udostępnienie telefonu alarmowego – do zgłaszania przez Gości jakichkolwiek problemów i bieżących usterek."
+				},
+				{
+					"iconName": "envelope",
+					"title": "Obsługa wynajmu",
+					"text": "- weryfikacja i bieżąca kontrola Gości, sprawdzimy lokal po każdym pobycie; - przekazanie i odbiór kluczy;"
 				},
 				{
 					"iconName": "trash",
-					"text": "eveniet aperiam nisi non accusamus, qui mollitia eligendi excepturi dolorum!"
+					"title": "Sprzątanie",
+					"text": "- profesjonalne sprzątanie nieruchomości, wymiana pościeli i ręczników po każdym pobycie; - bieżąca kontrola stanu technicznego lokalu i naprawy w przypadku wykrycia usterek;"
 				}
 			]
 		},

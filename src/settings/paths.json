@@ -4,16 +4,8 @@
 		"name": "Home"
 	},
 	{
-		"path": "/apartments",
-		"name": "Nasze apartamenty"
-	},
-	{
-		"path": "/price-list",
+		"path": "/prices",
 		"name": "Ceny"
-	},
-	{
-		"path": "/faq",
-		"name": "FAQ"
 	},
 	{
 		"path": "/contact",

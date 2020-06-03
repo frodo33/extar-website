@@ -4,6 +4,8 @@ import styled from 'styled-components/macro';
 import Icon from 'components/Icon';
 import { SectionTitle } from 'components/SectionTitle';
 
+import { BenefitsText } from 'components/BenefitsText';
+
 export const Benefits = ({ data }) => {
 	const { title, iconsArr } = data;
 
@@ -15,8 +17,10 @@ export const Benefits = ({ data }) => {
 
 	const staticTexts = iconsArr.map( (el, i) => {
 		return (i === 0) 
-			? <Description active={true} key={i}>{el.text}</Description>
-			: <Description key={i}>{el.text}</Description>
+			// ? <Description active={true} key={i}>{el.text}</Description>
+			// : <Description key={i}>{el.text}</Description>
+			? <BenefitsText title={el.title} text={el.text} active={true} key={i} />
+			: <BenefitsText title={el.title} text={el.text} active={false} key={i} />
 	});
 
 	const [icons, setIcons] = useState(staticIcons);
@@ -33,8 +37,10 @@ export const Benefits = ({ data }) => {
 
 		const currentTexts = iconsArr.map( (el, i) => {
 			return (i === ind) 
-				? <Description active={true} key={i}>{el.text}</Description>
-				: <Description key={i}>{el.text}</Description>
+				// ? <Description active={true} key={i}>{el.text}</Description>
+				// : <Description key={i}>{el.text}</Description>
+				? <BenefitsText title={el.title} text={el.text} active={true} key={i} />
+				: <BenefitsText title={el.title} text={el.text} active={false} key={i} />
 		});
 
 		setIcons(currentIcons);
@@ -71,18 +77,19 @@ const BenefitsSection = styled.section`
 const IconsWrapper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: center;
 	align-items: center;
+	max-width: 1000px;
 `;
 
 const IconBox = styled.div`
-	width: 100px;
-	height: 100px;
-	margin: 5px 20px;
+	width: 70px;
+	height: 70px;
+	margin: 15px 15px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: springgreen;
+	background: rgba(0,0,0, 0.2);
 	border-radius: 50%;
 	transition: .2s ease-in-out;
 	cursor: pointer;
@@ -93,7 +100,7 @@ const IconBox = styled.div`
 	@media screen and (min-width: 1024px) {
 		width: 120px;
 		height: 120px;
-		margin: 0px 30px;
+		margin: 20px 30px;
 	}
 `;
 
@@ -105,28 +112,5 @@ const DescWrapper = styled.div`
 	margin: 40px 0;
 	display: flex;
 	justify-content: center;
-	align-items: center;
-`;
-
-const visibleDescription = `
-	transition: .2s ease-in-out;
-	position: relative;
-	opacity: 1;
-`;
-const Description = styled.p`
-	position: absolute;
-	line-height: 2.5rem;
-	font-size: 1.2rem;
-	padding: 15px 10px;
-	opacity: 0;
-	${ ({ active }) => active && visibleDescription }
-
-	@media screen and (min-width: 768px) {
-		font-size: 1.6rem;
-		padding: 15px 30px;
-	}
-	@media screen and (min-width: 1280px) {
-		line-height: 3.5rem;
-    	font-size: 2rem;
-	}
+	// align-items: center;
 `;

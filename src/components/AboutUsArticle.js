@@ -37,7 +37,7 @@ const reversePic = `
 const ArticlePicture = styled.div`
 	width: 100%;
 	@media screen and (min-width: 768px) {
-		width: 45%;
+		width: 35%;
 		${ ({ reverse }) => reverse && reversePic }
 	}
 	& img {
