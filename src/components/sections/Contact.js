@@ -1,37 +1,38 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/macro';
 import firebase from 'firebase';
-
+import { validateEmail, getDate } from 'utils/index';
 import { SectionTitle } from 'components/SectionTitle';
 
-
 export const Contact = ({ data }) => {
-	const db = firebase.firestore();
+	const [emailVal, setEmailVal] = useState('');
+	const [emailStatus, setEmailStatus] = useState(false);
+	const [emailError, setEmailError] = useState(false);
+	const [checkboxError, setCheckboxError] = useState(false);
+	const [checkboxChecked, setCheckboxChecked] = useState(false);
 
 	const { title, tip, legal, number, email} = data;
-	const [emailVal, setEmailVal] = useState('');
-
-	const getDate = () => {
-		let today = new Date();
-		let dd = String(today.getDate()).padStart(2, '0');
-		let mm = String(today.getMonth() + 1).padStart(2, '0');
-		let yyyy = today.getFullYear();
-		
-		today = mm + '/' + dd + '/' + yyyy;
-		return today
-	}
 
 	const handleJoin = (e) => {
 		e.preventDefault();
-		const date = getDate()
-		db.collection('clients')
-		.add({
-			date: date,
-			email: emailVal
-		})
-		.then( res => {
-			setEmailVal('');
-		})
+		setEmailStatus( validateEmail(emailVal) );
+		setEmailError( !validateEmail(emailVal) );
+		setCheckboxError( !checkboxChecked );
+
+		if(emailStatus && checkboxChecked) {
+			const date = getDate()
+
+			firebase.firestore().collection('clients')
+			.add({
+				date: date,
+				email: emailVal
+			})
+			.then( res => {
+				setEmailVal('');
+				setEmailError(false);
+				setCheckboxChecked(false);
+			})
+		}
 	}
 	return (
 		<ContactSection>
@@ -40,6 +41,8 @@ export const Contact = ({ data }) => {
 				<ContactTip>{tip}</ContactTip>
 				<ContactWrapper>
 					<Form
+						emailError={emailError}
+						checkboxError={checkboxError}
 						onSubmit={handleJoin}>
 						<div className="form-wrapper">
 							<div className='field'>
@@ -51,9 +54,16 @@ export const Contact = ({ data }) => {
 									onChange={ (e) => setEmailVal(e.target.value) } />
 							</div>
 							<div className='legal'>
-								<input type="checkbox" name="checkbox" id="checkbox" />
+								<input 
+									type="checkbox" 
+									name="checkbox" 
+									id="checkbox" 
+									checked={checkboxChecked}
+									onChange={ (e) => setCheckboxChecked(e.target.checked ? true : false) } />
 								<label htmlFor="checkbox">{legal}</label>
 							</div>
+							<span className='email_error'>niepoprawny email</span>
+							<span className='checkbox_error'>zaznacz zgodę</span>
 						</div>
 						<button 
 							type='submit' 
@@ -119,10 +129,13 @@ const Form = styled.form`
 			position: relative;
 		}
 		.field {
-			border: 1px solid #000;
+			// border: 1px solid #000;
+			border: ${ ({ emailError }) => emailError ? '2px solid red;' : '1px solid #000;' }
 			& input {
 				width: 100%;
 				min-height: 35px;
+				border: none;
+				outline: none;
 			}
 		}
 		.legal {
@@ -138,14 +151,28 @@ const Form = styled.form`
 				padding-left: 5px;
 			}
 		}
+		.email_error {
+			color: red;
+			display: ${ ({ emailError }) => emailError ? 'block;' : 'none;' }
+		}
+		.checkbox_error {
+			color: red;
+			display: ${ ({ checkboxError }) => checkboxError ? 'block;' : 'none;' }
+		}
 	}
 	.submit-btn {
 		width: 30%;
+		max-height: 39px;
 		margin-left: 10px;
 		border: none;
 		outline: none;
 		background: #000;
 		color: #fff;
+		cursor: pointer;
+		transition: .2s ease-in-out;
+		&:hover {
+			transform: scale(1.05);
+		}
 	}
 `;
 

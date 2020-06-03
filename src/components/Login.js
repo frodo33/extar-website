@@ -15,6 +15,7 @@ export const Login = () => {
 		auth.signInWithEmailAndPassword(email,password)
 		.then( cred => {
 			console.log(cred.user)
+
 		})
 		.catch( err => {
 			console.log(err.message)

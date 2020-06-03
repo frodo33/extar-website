@@ -46,14 +46,7 @@ const GlobalStyle = createGlobalStyle`
 
 const onAuthStateChange = (callback) => {
   return firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-        console.log(user,'success')
-        callback(true)
-        // window.location.pathname = '/dashboard';
-      } else {
-        console.log(user,'failure')
-        callback(false);
-      }
+    user ? callback(true) : callback(false)
   });
 }
 
@@ -74,8 +67,7 @@ const App = ({ location }) => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/apartments" component={ApartmentsPage} />
-        <Route path="/contact" component={ContactPage} />
-        
+        <Route path="/contact" component={ContactPage} />    
         <Route path="/dashboard" render={ () => user ? <Dashboard /> : <Login /> } />
         <Route render={() => <Redirect to={{pathname: "/"}} />} />
       </Switch>
@@ -85,4 +77,3 @@ const App = ({ location }) => {
 }
 
 export default withRouter(App);
-// <Route path="/login" component={Login} />

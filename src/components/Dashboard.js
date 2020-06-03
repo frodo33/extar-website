@@ -5,26 +5,29 @@ import firebase from 'firebase';
 
 import Icon from 'components/Icon';
 
-// const signOut = firebase.auth().signOut();
+const onAuthStateChange = (callback) => {
+  return firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        firebase.firestore().collection('clients').onSnapshot( snap => callback(snap.docs) )
+      } else {
+        firebase.firestore().collection('clients').onSnapshot( snap => callback([]) )
+      }
+  });
+}
 
 export const Dashboard = () => {
-	const [elements, setElements] = useState('');
+	const [elements, setElements] = useState([]);
 
 	useEffect( () => {
-		const getData = () => {
-			const db = firebase.firestore();
-			db.collection('clients').onSnapshot( snap => setElements(snap.docs) )
-		}
-		getData();
+		const unsubscribe = onAuthStateChange(setElements);
+		return () => unsubscribe();
 	}, [])
+
 	const list = elements.length !== 0 && elements.map( (el,ind) => {
 		const data = el.data();
 		return <DashboardItem date={data.date} email={data.email} key={ind} />
 	})
-	// const list = elements.map( el => {
 
-	// })
-	console.log(elements, 'here')
 	return (
 		<>
 			<Logout onClick={ () => firebase.auth().signOut()}>
