@@ -1,12 +1,18 @@
 {
 	"logo": "logo.png",
+	"contact": {
+		"name": "EXTAR Sp. z o.o.",
+		"address": "Al. Komisji Edukacji Narodowej 36 lok. 112b",
+		"address2": "02-797 Warszawa",
+		"number": "+48 22 378 46 45",
+		"fax": "+48 22 493 46 45",
+		"email": "biuro@extar.pl"
+	},
 	"contactSection": 
 		{
 			"title": "Masz pytania?",
 			"tip": "Skontaktuj się z nami lub zostaw kontakt",
-			"legal": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, dicta.",
-			"number": "123 412 341",
-			"email": "qwer@qwer.pl"
+			"legal": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, dicta."
 		},
 	"aboutUsSection": 
 		{
@@ -126,5 +132,19 @@
 					]
 				}
 			]
-		}
+		},
+	"services": {
+		"title": "Kompletne zarządzanie usługami",
+		"subtitle": "od rezerwacji",
+		"percent": "20",
+		"icon": "phone",
+		"texts": [
+			"marketing internetowy nieruchomości",
+			"synchronizacja kalendarza dostępności nieruchomości",
+			"optymalizacja i zarządzanie cenami",
+			"komunikacja z Gośćmi",
+			"sprzątanie i pranie",
+			"dokonywanie napraw bieżących usterek"
+		]
+	}
 }

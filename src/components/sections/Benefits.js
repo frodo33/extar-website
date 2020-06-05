@@ -89,7 +89,7 @@ const IconBox = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: rgba(0,0,0, 0.2);
+	background: #d2d2d2;
 	border-radius: 50%;
 	transition: .2s ease-in-out;
 	cursor: pointer;

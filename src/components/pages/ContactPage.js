@@ -7,8 +7,8 @@ import { ContactDescription } from 'components/sections/ContactDescription';
 export const ContactPage = () => {
 	return (
 		<div>
-			<ContactDescription data={DATA.contactDescription} />
-			<Contact data={DATA.contactSection} />
+			<ContactDescription data={DATA.contact} title={DATA.contactDescription.title} />
+			<Contact data={DATA.contactSection} contact={DATA.contact} />
 		</div>
 	)
 }

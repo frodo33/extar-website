@@ -14,7 +14,7 @@ export const HomePage = () => {
 			<AboutUs data={DATA.aboutUsSection} />
 			<Benefits data={DATA.benefitsSection} />
 			<Apartments data={DATA.apartmentsSection} />
-			<Contact data={DATA.contactSection} />
+			<Contact data={DATA.contactSection} contact={DATA.contact} />
 		</>
 	)
 }

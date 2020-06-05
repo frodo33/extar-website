@@ -3,13 +3,20 @@ import styled from 'styled-components/macro';
 
 import { SectionTitle } from 'components/SectionTitle';
 
-export const ContactDescription = ({ data }) => {
-	const { title, text } = data;
+export const ContactDescription = ({ data, title }) => {
+	const { name, address, address2, number, fax, email } = data;
 	return (
 		<ContactDescriptionWrapper>
 			<div className="container">
 				<SectionTitle title={title} />
-				<SectionContent>{text}</SectionContent>
+				<SectionContent>
+					<span><strong>{name}</strong></span>
+					<span>{address}</span>
+					<span>{address2}</span>
+					<span><a href={`tel:${number}`}>{number}</a></span>
+					<span><a href={`fax:${fax}`}>{fax}</a></span>
+					<span><a href={`mailto:${email}`}>{email}</a></span>
+				</SectionContent>
 			</div>
 		</ContactDescriptionWrapper>
 	)
@@ -33,6 +40,15 @@ const SectionContent = styled.p`
 	line-height: 2rem;
 	font-size; 1.6rem;
 	width: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	& span a {
+		text-decoration: none;
+		color: #000;
+		cursor: pointer;
+	}
 
 	@media screen and (min-width: 768px) {
 		font-size: 1.8rem;

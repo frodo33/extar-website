@@ -14,7 +14,7 @@ import { Footer } from 'components/Footer';
 import { HomePage } from 'components/pages/HomePage';
 // import { ApartmentsPage } from 'components/pages/ApartmentsPage';
 import { PricesPage } from 'components/pages/PricesPage';
-import { FAQPage } from 'components/pages/FAQPage';
+// import { FAQPage } from 'components/pages/FAQPage';
 import { ContactPage } from 'components/pages/ContactPage';
 import { Login } from 'components/Login';
 import { Dashboard } from 'components/Dashboard';
@@ -34,6 +34,7 @@ const GlobalStyle = createGlobalStyle`
         sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        min-height: 100vh;
 
         .container {
           width: 100%;
@@ -67,7 +68,6 @@ const App = ({ location }) => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/prices" component={PricesPage} />
-        <Route path="/FAQ" component={FAQPage} />
         <Route path="/contact" component={ContactPage} />    
         <Route path="/dashboard" render={ () => user ? <Dashboard /> : <Login /> } />
         <Route render={() => <Redirect to={{pathname: "/"}} />} />
@@ -80,3 +80,4 @@ const App = ({ location }) => {
 export default withRouter(App);
 
 // <Route path="/apartments" component={ApartmentsPage} />
+// <Route path="/FAQ" component={FAQPage} />

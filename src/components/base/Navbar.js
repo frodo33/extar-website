@@ -30,7 +30,7 @@ export const Navbar = () => {
 					<Logo path={DATA.logo} />
 					<MenuDesktop />
 				</NavWrapper>
-				<NavContact data={DATA.contactSection}/>
+				<NavContact data={DATA.contact}/>
 				<Hamburger open={open} setOpen={setOpen} />
 				<MenuMobile path={DATA.logo} open={open} setOpen={setOpen} />
 			</div>

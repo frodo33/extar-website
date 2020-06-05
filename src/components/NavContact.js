@@ -8,10 +8,10 @@ export const NavContact = ({ data }) => {
 	return (
 		<>
 			<NavContactWrapper>
-				<span>tel: <a href={`tel:+48${number}`}>+48 {number}</a></span>
+				<span>tel: <a href={`tel:${number}`}>{number}</a></span>
 				<span>email: <a href={`mailto:${email}`}>{email}</a></span>
 			</NavContactWrapper>
-			<NavIconWrapper href={`tel:+48${number}`} >
+			<NavIconWrapper href={`tel:${number}`} >
 				<Icon name="phone" fill={'#000'} />
 			</NavIconWrapper>
 		</>

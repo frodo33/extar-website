@@ -4,14 +4,15 @@ import firebase from 'firebase';
 import { validateEmail, getDate } from 'utils/index';
 import { SectionTitle } from 'components/SectionTitle';
 
-export const Contact = ({ data }) => {
+export const Contact = ({ data, contact }) => {
 	const [emailVal, setEmailVal] = useState('');
 	const [emailStatus, setEmailStatus] = useState(false);
 	const [emailError, setEmailError] = useState(false);
 	const [checkboxError, setCheckboxError] = useState(false);
 	const [checkboxChecked, setCheckboxChecked] = useState(false);
 
-	const { title, tip, legal, number, email} = data;
+	const { title, tip, legal } = data;
+	const { email, number } = contact;
 
 	const handleJoin = (e) => {
 		e.preventDefault();
@@ -73,7 +74,7 @@ export const Contact = ({ data }) => {
 					</Form>
 					<Or>lub</Or>
 					<Details>
-						<a href={`tel:+48 ${number}`}>+48 {number}</a>
+						<a href={`tel:${number}`}>{number}</a>
 						<a href={`mailto:${email}`}>{email}</a>
 					</Details>
 				</ContactWrapper>
